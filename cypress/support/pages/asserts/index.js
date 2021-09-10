@@ -9,4 +9,6 @@ class asserts {
     }
 }
 
+
+// exportar nossa classe para ser usada (Construtor)
 export default new asserts;
