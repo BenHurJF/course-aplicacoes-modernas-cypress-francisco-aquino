@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "test:chrome": "cypress run --browser chrome --no-exit"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -22,6 +21,6 @@
     "cypress-cucumber-preprocessor": "^4.2.0"
   },
   "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": true 
-  }
+  "nonGlobalStepDefinitions": true 
+}
 }
