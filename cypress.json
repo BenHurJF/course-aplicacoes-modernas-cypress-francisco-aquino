@@ -1,6 +1,8 @@
 {
+    "testFiles": "**/*.feature",
+
     "viewportWidth": 1366,
     "viewportHeight": 768,
     "defaultCommandTimeout": 5000,
-    "baseUrl": ""
+    "baseUrl": "https://developers.google.com/speed/pagespeed/insights/?hl=pt-br"
 }
