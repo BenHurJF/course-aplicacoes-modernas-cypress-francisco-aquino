@@ -1,4 +1,3 @@
-
-
-
-export default testeElements;
+export const ELEMENTS = {
+    teste: '.name'
+}
