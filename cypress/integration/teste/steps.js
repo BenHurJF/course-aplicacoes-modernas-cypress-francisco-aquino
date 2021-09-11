@@ -2,7 +2,16 @@
 import asserts from '../../support/pages/asserts';
 
 
-Then(/^faço uma assertiva$/, () => {
+Then(/^Asserções esperadas com Expect$/, () => {
 	asserts.fazerAssert();
+	asserts.outroAssert();
+});
+
+Then(/^Asserção com array ->$/, () => {
+	asserts.assertComArray();
+});
+
+When(/^Asserções de tipos$/, () => {
+	asserts.assertNivelDeTipos();
 });
 
