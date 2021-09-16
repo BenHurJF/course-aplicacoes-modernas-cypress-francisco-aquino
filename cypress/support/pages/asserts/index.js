@@ -56,15 +56,33 @@ class asserts {
          expect(str).to.be.a('string');
          ////////////////////////////////
 
-         const str1 = 'BenHurJF';
+         const str1 = 'BenHurJF' + 2;
          // Comparar STRINGS
-         expect(str1).to.be.equal('BenHurJF');
+         expect(str1).to.be.equal('BenHurJF2');
          // Verificar se o tamanho dessa String  seja de 15 Caracteres (OU OQUE DESEJAR) ->
-         expect(str1).to.have.length(8);
+         expect(str1).to.have.length(9);
          // Verificar so um TRECHO da STRING -> STR1
          expect(str1).to.contains('Hur');
-         // 
+         // Verificar que existe apenas LETRAS
+         expect(str1).to.match(/\w+/);
+         // Verificar que não contém números
+         expect(str1).to.match(/\D+/);
      }
+
+     numeros() {
+         const n1 = 4;
+         const floatn1 = 4.321;
+         // verificar se o numero seja igual a 4
+         expect(n1).to.be.equal(4);
+         // verificar se e acima de 3
+         expect(n1).to.be.above(3);
+         // se está abaixo de 5
+         expect(n1).to.be.below(5);
+         /// Float
+         expect(floatn1).to.be.equal(4.321);
+         // verificar se o float e proximo de... com uma precisao de 0.1
+         expect(floatn1).to.be.closeTo(4.3, 0.1);
+        }
 }
 
 

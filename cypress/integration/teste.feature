@@ -10,3 +10,6 @@ Funcionalidade: Asserção
 
     Cenário: Cenário de Asserções a nível de TIPOS
         Quando Asserções de tipos
+
+    Cenário: Cenário de Asserção para Números
+        Quando Asserções numbers

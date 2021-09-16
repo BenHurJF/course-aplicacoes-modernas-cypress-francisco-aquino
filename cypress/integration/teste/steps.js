@@ -15,3 +15,7 @@ When(/^Asserções de tipos$/, () => {
 	asserts.assertNivelDeTipos();
 });
 
+When(/^Asserções numbers$/, () => {
+	asserts.numeros();
+});
+
