@@ -1,9 +1,8 @@
 // ações da página
 
 // requerir os elementos para page ATUAL->
-const elements = require('./elements').ELEMENTS;
 
-class asserts {
+class Assert {
 
     fazerAssert() {
         const a = 1;
@@ -87,4 +86,4 @@ class asserts {
 
 
 // exportar nossa classe para ser usada (Construtor)
-export default new asserts;
+export default new Assert;

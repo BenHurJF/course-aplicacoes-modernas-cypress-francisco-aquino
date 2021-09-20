@@ -20,7 +20,7 @@
     "cypress": "^5.6.0",
     "cypress-cucumber-preprocessor": "^4.2.0"
   },
-  "cypress-cucumber-preprocessor": {
-  "nonGlobalStepDefinitions": true 
-}
+  "dependencies": {
+    "sinon": "^11.1.2"
+  }
 }
