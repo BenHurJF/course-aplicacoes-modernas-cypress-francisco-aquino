@@ -82,6 +82,7 @@ class Assert {
          // verificar se o float e proximo de... com uma precisao de 0.1
          expect(floatn1).to.be.closeTo(4.3, 0.1);
         }
+        
 }
 
 
