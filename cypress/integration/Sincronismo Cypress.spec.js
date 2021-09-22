@@ -5,7 +5,8 @@ describe('Sincronismo Cypress', () => {
     beforeEach(() => {
         cy.fixture('teste').then((teste) => {
             cy.visit(teste.url);    
-    }); });
+    }); 
+});
     
     it('Deve aguardar elemento ficar disponível', () => {
         cy.get('#novoCampo')
@@ -27,11 +28,13 @@ describe('Sincronismo Cypress', () => {
     });
 
     it('Deve fazer Retrys', () => {
+        cy.get('#novoCampo')
+        .should('not.exist')
+
         cy.get('#buttonDelay')
         .click()
 
         cy.get('#novoCampo')
-        .should('not.exist')
         .should('exist')
     })
 })
