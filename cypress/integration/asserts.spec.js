@@ -1,7 +1,6 @@
 /// <reference types='Cypress' />
 
 import Assert from '../support/pages/asserts/';
-import commands from '../support/commands.js';
 
 describe('Assertions do curso Aplicações modernas com Cypress', () => {
 
@@ -19,16 +18,16 @@ describe('Assertions do curso Aplicações modernas com Cypress', () => {
                     cy.wait(server.status).then((status) => {
                         console.log('deu tudo certo')
                     })
-                };
-            });
+                }});
     });
 });
 
-    beforeEach(() => {
+ /**   beforeEach(() => {
         cy.fixture('teste').then((teste) => {
             cy.visit(teste.url);
     });
 });
+*/
 
     it('Asserts comuns', () => {
         Assert.fazerAssert();
@@ -98,9 +97,15 @@ describe('Campos de Texto', () => {
         .should('have.length', 2)
     });
 
-    it.only('Checkbox', () => {
-        
+    it('Checkbox', () => {
+        cy.get('[name=formComidaFavorita]').click({multiple: true}) // Marcar múltiplos elementos-checkbox
+        .should('be.checked');
     });
 
+    it.only('Comboboxs', () => {
+       cy.get('[data-test=dataEscolaridade]')
+       .select('2o grau completo')
+       .should('have.value', '2graucomp') // Assert pelo value do combobox
+    })
 });
 });
