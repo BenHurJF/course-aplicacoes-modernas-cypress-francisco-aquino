@@ -1,6 +1,6 @@
 /// <reference types='Cypress' />
 
-import Assert from '../support/pages/asserts/';
+import Assert from '../support/pages/asserts';
 
 describe('Assertions do curso Aplicações modernas com Cypress', () => {
 
@@ -102,10 +102,17 @@ describe('Campos de Texto', () => {
         .should('be.checked');
     });
 
-    it.only('Comboboxs', () => {
+    it('Comboboxs', () => {
        cy.get('[data-test=dataEscolaridade]')
        .select('2o grau completo')
        .should('have.value', '2graucomp') // Assert pelo value do combobox
+       //TODO Validar opcoes do combo
+    })
+
+    it('Combo múltiplo', () => {
+        cy.get('[data-testid=dataEsportes]')
+        .select( ['natacao', 'Corrida', 'nada'] )
+        //TODO Validar opcoes selecionadas do combo
     })
 });
 });
