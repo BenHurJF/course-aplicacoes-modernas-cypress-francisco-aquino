@@ -114,5 +114,20 @@ describe('Campos de Texto', () => {
         .select( ['natacao', 'Corrida', 'nada'] )
         //TODO Validar opcoes selecionadas do combo
     })
+
+    describe('Titulos', () => {
+       before(() => {
+        cy.fixture('teste').then((teste) => {
+            cy.visit(teste.url);
+    });
+    });
+        it.only('Titulo', () => {
+            cy.title().should('be.equal', 'Campo de Treinamento')
+
+            cy.title().then(title => {
+                console.log(title)
+            } )
+        })
+    });
 });
 });

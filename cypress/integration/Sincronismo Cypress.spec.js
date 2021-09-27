@@ -52,10 +52,33 @@ describe('Sincronismo Cypress', () => {
             .should('contain', 'Item 2')
     })
 
-    it.only('Uso do timeout', () => {
+    it('Uso do timeout', () => {
         cy.get('#buttonDelay')
         .click()
 
         cy.get('#novoCampo', { timeout: 4000 }).should('exist')
+
+        cy.get('#buttonListDOM').click()
+        cy.get('#lista li span')
+        .should('have.length', 1)
+        cy.get('#lista li span')
+        .should('have.length', 2)
+    })
+
+    it('Should vs Then', () => {
+        cy.get('#buttonListDOM').should($el1 => {
+
+            expect($el1).to.have.length(1)
+            }).and('have.id', 'buttonListDOM')
+
+
+     //   cy.get('#lista li span').then($el => {
+       //     expect($el).to.have.length(1)
+            
+           /** cy.wait(5000)
+            cy.get('#lista li span').then($el2 => {
+                //console.log($el2)
+                expect($el2).to.have.length(2)  */
+    // })
     })
 })
