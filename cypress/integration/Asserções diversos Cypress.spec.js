@@ -102,7 +102,7 @@ describe('Campos de Texto', () => {
         .should('be.checked');
     });
 
-    it('Comboboxs', () => {
+    it.only('Comboboxs', () => {
        cy.get('[data-test=dataEscolaridade]')
        .select('2o grau completo')
        .should('have.value', '2graucomp') // Assert pelo value do combobox
