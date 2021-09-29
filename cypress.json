@@ -1,6 +1,6 @@
 {
     "testFiles": "**/*spec.js",
-
+    "baseUrl": "https://wcaquino.me/cypress/componentes.html",
     "viewportWidth": 1024,
     "viewportHeight": 720,
     "defaultCommandTimeout": 5000

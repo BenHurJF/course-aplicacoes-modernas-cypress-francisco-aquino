@@ -102,17 +102,53 @@ describe('Campos de Texto', () => {
         .should('be.checked');
     });
 
-    it.only('Comboboxs', () => {
+    it('Comboboxs', () => {
        cy.get('[data-test=dataEscolaridade]')
        .select('2o grau completo')
        .should('have.value', '2graucomp') // Assert pelo value do combobox
+       
+       
        //TODO Validar opcoes do combo
+       cy.get('[data-test=dataEscolaridade] option')
+       .should('have.length', 8)
+       cy.get('[data-test=dataEscolaridade] option').then($array => {  
+           // Pega as opções do combobox e ENTÃO (.then) joga na variável $arary, que executa uma função
+           const values = []
+           // Define uma constante values com array vazio para preencher logo a frente
+           $array.each(function() {
+            // Pega a variável $array, e (each) = para cada elemento do array execute a function
+               values.push(this.innerHTML)
+            // Será executado = pega a constante "values" com o array vazio, 
+            // e dá um push (Empurre) no array os elementos do combobox pelo INNERHTML
+            // Ou seja = a function pega o values e empurra os elementos dos options dentro desse array
+           })
+           expect(values).to.include.members(["Superior", "Mestrado"])
+           // e aqui rola um expect, = Espera-se que esteja incluso dentro de values os seguintes membros -> ["", ""] 
+       })
+
     })
 
-    it('Combo múltiplo', () => {
+    it.only('Combo múltiplo', () => {
+        //TODO VALIDAR OPÇÕES SELECIONADAS NO COMBO DE SELEÇÃO
+         cy.get('[data-testid=dataEsportes]')
+         .select( ['natacao', 'Corrida', 'nada'] )
+        // Forma simples de validar os selecionados ->
+        // Não funciona -> cy.get('[data-testid=dataEsportes]').should('have.value', ['natacao', 'Corrida', 'nada'])
+        cy.get('[data-testid=dataEsportes]').then($ele => {
+            // Usando promise funciona !!!
+            expect($ele.val()).to.be.deep.equal(['natacao', 'Corrida', 'nada'])
+            expect($ele.val()).to.have.length(3)
+        })
+        
+         // OBS: ESSAS VALIDAÇÕES SÓ FUNCIONAM POIS OS COMBOBOX JÁ ESTÃO SELECIONADOS LÁ EM CIMA
+         // Validando pelo invoke = INVOCAR OS VALORES DO ARRAY 
+         // (e como selecionou alguns lá em cima o INVOKE trás o array já com os select), 
+         // e Logo em seguida Verificando com Should 'eql' que significa o (deep equal = Profundamente Igual)
+         // E Valida se está profundamente igual aos -> ['natacao', 'Corrida', 'nada']
         cy.get('[data-testid=dataEsportes]')
-        .select( ['natacao', 'Corrida', 'nada'] )
-        //TODO Validar opcoes selecionadas do combo
+        .invoke('val')
+        .should('eql', ['natacao', 'Corrida', 'nada'])
+        
     })
 
     describe('Titulos', () => {

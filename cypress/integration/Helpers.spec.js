@@ -67,7 +67,7 @@ describe('Helpers', () => {
 
         cy.get('#formNome').then($camponome => {
             // Mais um exemplo pegando um elemento e colocando na variável e logo após retornando 
-            // ações qeu são: Escrever no campo nome o type, e validar o value desse input
+            // ações que são: Escrever no campo nome o type, e validar o value desse input
             cy.wrap($camponome).type('Estou progredindo em cypress')
             cy.wrap($camponome, { timeout: 2000 }).should('have.value', 'Estou progredindo em cypress')
 
@@ -80,7 +80,7 @@ describe('Helpers', () => {
         })
     })
 
-    it.only('Reutilizando o Título', () => {
+    it('Reutilizando o Título', () => {
         cy.visit(Cypress.env("url"));
         // const title = cy.get('body h3', { timeout: 2000 }).should('contain', 'Campo de Treinamento')
 
@@ -97,7 +97,7 @@ describe('Helpers', () => {
         })
 
         cy.get('[data-cy=dataSobrenome]').then($elemento => {  
-            // Transferindo o GET do campo 'sobrenome' em uma variável no '.then', 
+            // Transferindo o GET do campo 'sobrenome' em uma variável no '.then' jquery, 
             // para logo após ser utilizado um '.val' em JQuery que insere no campo Sobrenome o valor da variável syncTitle que é LET
             $elemento.val(syncTitle)
         })
