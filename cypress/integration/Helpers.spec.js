@@ -14,7 +14,8 @@ describe('Helpers', () => {
         */cy.fixture('teste').then((teste) => {
             cy.visit(teste.url, { log: false });
         });
-
+        
+        // Criando uma promise que após ser chamada e executada/atendida, executa o "resolve" e retorna 10, após 5 SEGUNDOS.
         const promise = new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve(10)
@@ -23,6 +24,7 @@ describe('Helpers', () => {
 
         cy.get('#buttonSimple').then(() => console.log('Econtrei o primeiro botão do site'))
         //promise.then(num => console.log(num))
+        // USANDO A PROMISE pelo Cy (cypress), e atribuindo a -> ret, que por sua vez, executa o console.log(ret), o resultado sai no console e trás o número 10
         cy.wrap(promise).then(ret => console.log(ret))
         cy.get('#buttonLazy').then(() => console.log('Encontrei o segundo botão do site :)'))
 
