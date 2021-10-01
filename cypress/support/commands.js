@@ -23,3 +23,12 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('popup', (locator, msg) => {
+    cy.visit('https://wcaquino.me/cypress/frame.html')
+
+        cy.get(locator).click()
+        cy.on('window:alert', alertPopUp => {
+            expect(alertPopUp).to.be.equal(msg)
+        })
+})
