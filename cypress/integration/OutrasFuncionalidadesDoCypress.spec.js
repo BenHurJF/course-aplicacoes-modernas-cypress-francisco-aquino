@@ -23,7 +23,19 @@ describe('Fixtures testes', () => {
          })
     })
 
-    it.only('Commands...', () => {
+    it('Commands...', () => {
        cy.popup('#otherButton', 'Click OK!')
     })
+
+
+describe('Testes Dinâmicos...', () => {
+        before('', () => {
+        //    cy.visit('https://wcaquino.me/cypress/componentes.html')
+        })
+
+        const food = ['Carne', 'Frango', 'Pizza', 'Vegetariano']
+    it.only('Cadastro com comidas variáveis...', () => {
+        
+     })
+})
 })
