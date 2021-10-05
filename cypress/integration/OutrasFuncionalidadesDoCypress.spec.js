@@ -30,12 +30,15 @@ describe('Fixtures testes', () => {
 
 describe('Testes Dinâmicos...', () => {
         before('', () => {
-        //    cy.visit('https://wcaquino.me/cypress/componentes.html')
+           cy.visit('https://wcaquino.me/cypress/componentes.html')
         })
 
         const food = ['Carne', 'Frango', 'Pizza', 'Vegetariano']
     it.only('Cadastro com comidas variáveis...', () => {
-        
+        cy.get('#formComidaCarne')
+        cy.get('#formComidaFrango')
+        cy.get('#formComidaPizza')
+        cy.get('#formComidaVegetariana')
      })
 })
 })
