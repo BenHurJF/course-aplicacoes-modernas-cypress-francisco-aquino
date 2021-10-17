@@ -7,8 +7,6 @@ describe('Fixtures testes', () => {
         //    cy.visit('https://wcaquino.me/cypress/componentes.html')
     })
 
-
-
     it('Get DATA from fixture file', function () {
         cy.fixture('userData').as('site').then(() => {
             cy.visit(this.site.url)
@@ -47,7 +45,7 @@ describe('Fixtures testes', () => {
         })
         })
 
-        it.only('Deve selecionar todos usando o EACH', () => {
+        it('Deve selecionar todos usando o EACH', () => {
             cy.get('#formNome').type('Testando')
             cy.get('#formSobrenome').type('Ben-Hur')
             cy.get(`table[id='formSexo'] input[id='formSexoMasc']`).check()
@@ -73,8 +71,26 @@ describe('Fixtures testes', () => {
         beforeEach('', () => {
             cy.visit('https://wcaquino.me/cypress/componentes.html')
         })
-    it('Time', () => {
-      
+    it('Alterar campo de tempo/Time', () => {
+    //   cy.get(`input[id='buttonNow']`).click()
+    //   cy.get(`div[id='resultado'] span`).should('contain', '17/10/2021')
+
+    //   cy.clock()
+    //   cy.get(`input[id='buttonNow']`).click()
+    //   cy.get(`div[id='resultado'] span`).should('contain', '31/12/1969')
+
+      const dt = new Date(2014, 6, 11, 15, 34, 33)
+      cy.clock(dt.getTime())
+      cy.get(`input[id='buttonNow']`).click()
+      cy.get(`div[id='resultado'] span`).should('contain', '11/07/2014')
+    })
+
+    it.only('avançar tempo no futuro', () => {
+        cy.get('#buttonTimePassed').click()
+        // cy.get(`div[id='resultado'] span`).should('contain', '163')
+        cy.get('#resultado > span').invoke('text').then(( $text => {
+           cy.wrap($text).should('gt', 16344487)
+        }))
     })
 })
 })
