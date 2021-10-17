@@ -18,7 +18,8 @@
   "homepage": "https://github.com/BenHurJF/Cypress-Recursos-Automation#readme",
   "devDependencies": {
     "cypress": "^8.5.0",
-    "cypress-cucumber-preprocessor": "^4.2.0"
+    "cypress-cucumber-preprocessor": "^4.2.0",
+    "cypress-xpath": "^1.6.2"
   },
   "dependencies": {
     "sinon": "^11.1.2"

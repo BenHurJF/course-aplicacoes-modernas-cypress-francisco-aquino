@@ -32,3 +32,11 @@ Cypress.Commands.add('popup', (locator, msg) => {
             expect(alertPopUp).to.be.equal(msg)
         })
 })
+
+Cypress.Commands.add('clickAlert', (elem, msg) => {
+    cy.on('window:alert', alert => {
+        expect(alert).to.be.equal(msg)
+        return true
+    })
+    cy.get(elem).click()
+})
