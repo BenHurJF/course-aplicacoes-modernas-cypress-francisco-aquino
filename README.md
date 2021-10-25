@@ -8,7 +8,7 @@ Tópicos abordados nas SPECS e Projetos que será disponibilizado no meu GitHub 
 
 . Sincronismo - wait, timeout, Then
 
-. Helpers - wrap, invoke, dívida
+. Helpers - wrap, invoke
 
 . Mocks - alert's, iFrame, Pop-up,
 
